@@ -1,0 +1,43 @@
+﻿@using AuthLibrarySampleApp.Models
+
+@model Agency
+@{
+    ViewBag.Title = "Authentication Library Sample Application";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Modify The Web.Config to match your Application requirements as needed.
+            </p>
+        </div>
+    </section>
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+    <fieldset>
+        <legend>Agency Information</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.agencyName, "Agency Name")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.agencyName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.agencyEnv, "Agency Environment")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.agencyEnv)
+        </div>
+    </fieldset>
+      <p>
+          <input type="submit" value="Login" align="middle" />
+      </p>
+    }

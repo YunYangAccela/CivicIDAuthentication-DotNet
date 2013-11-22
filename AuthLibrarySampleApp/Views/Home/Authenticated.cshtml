@@ -1,0 +1,41 @@
+﻿@using Accela.Shared.AuthLibrary
+
+@model CurrentUserProfile
+@{
+    ViewBag.Title = "Authenticated";
+}
+<h1>Authenticated</h1>
+<br />
+<hr align="left" size="4" width="370" color="maroon" />
+
+<h3>@ViewBag.Message</h3>
+<br />
+
+@using (Html.BeginForm())
+    {
+    <fieldset>
+        <legend>User Information</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.userProfile.id, "User Id")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.userProfile.id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.userProfile.loginName, "User Name")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.userProfile.loginName)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.token.access_token, "Token")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.token.access_token)
+        </div>
+    </fieldset>
+    }
+
